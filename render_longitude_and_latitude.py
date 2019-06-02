@@ -1,16 +1,10 @@
 from flask import Flask, render_template
+from render_stores import listOfStoresInTuples
 import json
 import requests
 
-with open("stores.json") as list_of_stores:    
-    listOfStores = json.load(list_of_stores)
-    listOfStoresInTuples = []
-    for index in range(len(listOfStores)):
-        name = listOfStores[index]['name']
-        postcode = listOfStores[index]['postcode']
-        listOfStoresInTuples.append((name, postcode))
-    listOfStoresInTuples.sort()
-    
+
+
 listOfPostcodes = []
 for index in range(len(listOfStoresInTuples)):
     listOfPostcodes.append(listOfStoresInTuples[index][1])
@@ -32,7 +26,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def render_list_of_stores():
-    return render_template('render_stores.html', nameAndPostcode = listOfStoresInTuples, longitudeAndLatitude = longitudeAndLatitude)
+    return render_template('render_stores_with_long_and_lat.html', nameAndPostcode = listOfStoresInTuples, 
+                           longitudeAndLatitude = longitudeAndLatitude)
 
 if __name__ == '__main__':
     app.run(debug = True)   

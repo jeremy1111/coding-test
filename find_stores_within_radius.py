@@ -1,14 +1,10 @@
-from render_stores_application import listOfStoresInTuples, longitudeAndLatitude
-from math import cos, asin, sqrt
-import math
+from render_stores import listOfStoresInTuples
+from render_longitude_and_latitude import longitudeAndLatitude
+from find_distance import distance
 import requests
 import json
 
-# Function found in Stackoverflow to mathematically compute distance in kilometres between two points based on longitude and latitude 
-def distance(lat1, lon1, lat2, lon2):
-    p = math.pi / 180
-    a = 0.5 - cos((lat2 - lat1) * p)/2 + cos(lat1 * p) * cos(lat2 * p) * (1 - cos((lon2 - lon1) * p)) / 2
-    return 12742 * asin(sqrt(a))
+
 
 def list_of_stores_within_radius(postcode, radius):
     response = requests.get("https://api.postcodes.io/postcodes/" + postcode)

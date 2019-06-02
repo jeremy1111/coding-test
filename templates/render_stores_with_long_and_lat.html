@@ -13,5 +13,17 @@
             </tr>
          {% endfor %}
       </table>
+	  <table id="tblTwo" border=1 style="width:25%; float:left">
+	    <tr>
+		  <th> Longitude </th>
+		  <th> Latitude </th>
+		</tr>
+         {% for longitude, latitude in longitudeAndLatitude %}
+            <tr>
+               <td> {{ longitude }} </td>
+               <td> {{ latitude }} </td>
+            </tr>
+         {% endfor %}
+      </table>
    </body>
 </html>
