@@ -1,5 +1,5 @@
-from render_stores import listOfStoresInTuples
-from render_longitude_and_latitude import longitudeAndLatitude
+from render_stores import list_of_stores_in_tuples
+from render_longitude_and_latitude import longitude_and_latitude
 from find_distance import distance
 import requests
 import json
@@ -8,35 +8,38 @@ import json
 
 def list_of_stores_within_radius(postcode, radius):
     response = requests.get("https://api.postcodes.io/postcodes/" + postcode)
-    postcodeDetails = json.loads(response.text)
+    postcode_details = json.loads(response.text)
     try:
-        longitudeOfPostcode = postcodeDetails['result']['longitude']
-        latitudeOfPostcode = postcodeDetails['result']['latitude']
-        listOfStoresWithinRadius = []
-        listOfCoordinates = []
-        for index in range(len(listOfStoresInTuples)):
-            longitudeOfStore = longitudeAndLatitude[index][0]
-            latitudeOfStore = longitudeAndLatitude[index][1]
-            distanceStoreToPostcodeInKM = distance(latitudeOfPostcode, longitudeOfPostcode, latitudeOfStore, longitudeOfStore)
-            if distanceStoreToPostcodeInKM <= radius:
-                listOfStoresWithinRadius.append(listOfStoresInTuples[index])
-                listOfCoordinates.append(longitudeAndLatitude[index])
-        lengthCoordinateList = range(len(listOfCoordinates))
+        longitude_of_postcode = postcode_details['result']['longitude']
+        latitude_of_postcode = postcode_details['result']['latitude']
+        list_of_stores_within_radius = []
+        list_of_coordinates = []
+        for index in range(len(list_of_stores_in_tuples)):
+            longitude_of_store = longitude_and_latitude[index][0]
+            latitude_of_store = longitude_and_latitude[index][1]
+            distance_store_to_postcode = distance(latitude_of_postcode, longitude_of_postcode, 
+                                                  latitude_of_store, longitude_of_store)
+            if distance_store_to_postcode <= radius:
+                list_of_stores_within_radius.append(list_of_stores_in_tuples[index])
+                list_of_coordinates.append(longitude_and_latitude[index])
+        length_coordinate_list = range(len(list_of_coordinates))
         # indexes of sorted latitudes north to south (in descending order)
-        sortedIndexByLatitude = sorted(lengthCoordinateList, key=lambda k: listOfCoordinates[k][1], reverse=True)
+        sorted_index_by_latitude = sorted(length_coordinate_list, 
+                                          key=lambda k: list_of_coordinates[k][1], 
+                                          reverse=True)
         # compute list of stores ordered from north to south
-        listOfStoresNorthToSouth = []
-        for index in lengthCoordinateList:
-            loopThruLatitudeIndexes = sortedIndexByLatitude[index]
-            listOfStoresNorthToSouth.append(listOfStoresWithinRadius[loopThruLatitudeIndexes])
-        return listOfStoresNorthToSouth
+        list_of_stores_north_to_south = []
+        for index in length_coordinate_list:
+            loop_thru_latitude_indexes = sorted_index_by_latitude[index]
+            list_of_stores_north_to_south.append(list_of_stores_within_radius[loop_thru_latitude_indexes])
+        return list_of_stores_north_to_south
     except:
-        fatalMessage = 'Invalid postcode'
-        return fatalMessage
+        fatal_message = 'Invalid postcode'
+        return fatal_message
 
 print('This program returns a list of stores within a given radius of a given postcode.')
-print('The stores sorted from north to south.')
-testPostCode = input('Please enter a postcode: ')
-testRadius = input('Please enter a radius in km: ')    
-testResult = list_of_stores_within_radius(testPostCode, float(testRadius))
-print(testResult)
+print('The stores are sorted from north to south.')
+test_postCode = input('Please enter a postcode: ')
+test_radius = input('Please enter a radius in km: ')    
+test_result = list_of_stores_within_radius(test_postCode, float(test_radius))
+print(test_result)
