@@ -3,12 +3,12 @@ from find_stores import list_of_stores_in_tuples
 from find_longitude_and_latitude import longitude_and_latitude
 
 
-
 app = Flask(__name__)
 
 @app.route('/stores')
 def render_list_of_stores():
-    return render_template('render_stores.html', name_and_postcode = list_of_stores_in_tuples)
+    return render_template('render_stores.html', 
+                           name_and_postcode = list_of_stores_in_tuples)
 
 @app.route('/stores_and_coordinates')
 def render_list_of_stores_with_coordinates():
