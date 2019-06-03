@@ -1,5 +1,5 @@
-from render_stores import list_of_stores_in_tuples
-from render_longitude_and_latitude import longitude_and_latitude
+from find_stores import list_of_stores_in_tuples
+from find_longitude_and_latitude import longitude_and_latitude
 from find_distance import distance
 import requests
 import json
@@ -25,7 +25,7 @@ def list_of_stores_within_radius(postcode, radius):
         length_coordinate_list = range(len(list_of_coordinates))
         # indexes of sorted latitudes north to south (in descending order)
         sorted_index_by_latitude = sorted(length_coordinate_list, 
-                                          key=lambda k: list_of_coordinates[k][1], 
+                                          key=lambda index: list_of_coordinates[index][1], 
                                           reverse=True)
         # compute list of stores ordered from north to south
         list_of_stores_north_to_south = []
