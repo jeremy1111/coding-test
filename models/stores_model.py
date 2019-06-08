@@ -33,7 +33,7 @@ class Stores:
         
     def get_postcodes(self):
         """Get the list of postcodes
-           Returns list of strings ['postcode1', postcode2, ...]
+           Returns list of strings ['postcode1', 'postcode2', ...]
         """
         list_of_postcodes = []
         for index in range(len(self.get_sorted_list_of_stores())):
