@@ -103,15 +103,6 @@ class StoresWithinRadius:
                                       reverse=True
         )
         return sorted_indexes_list_by_latitude
-
-
-    def get_long_and_lat_list_sorted_by_lat(self):
-        """Compute list of longitudes and latitudes sorted by latitude in 
-           descending order (north to south)
-        """
-        list_of_long_and_lat = self._get_list_of_long_and_lat()
-        list_of_long_and_lat.sort(key = lambda item: item[1], reverse = True)
-        return list_of_long_and_lat
  
  
     def get_stores_within_radius_ordered(self):
@@ -131,3 +122,12 @@ class StoresWithinRadius:
         except:
             # If no postcode data is returned by API
             return 'Invalid postcode'
+            
+
+    def get_long_and_lat_list_sorted_by_lat(self):
+        """Compute list of longitudes and latitudes sorted by latitude in 
+           descending order (north to south)
+        """
+        list_of_long_and_lat = self._get_list_of_long_and_lat()
+        list_of_long_and_lat.sort(key = lambda item: item[1], reverse = True)
+        return list_of_long_and_lat
