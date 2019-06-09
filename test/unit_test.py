@@ -24,7 +24,7 @@ class Test(unittest.TestCase):
         postcode = 'EC1N 2HT'
         radius = 15
         
-        # Create instances of objects
+        # Create objects
         stores = Stores()
         long_and_lat = LongitudeAndLatitude()
         stores_within_radius = StoresWithinRadius(postcode, radius)
