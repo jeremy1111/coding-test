@@ -1,36 +1,66 @@
-# Tails coding test
+# Tails coding test - submission by Jeremy Hui
 
-## About this task
+## Task completed
+> Backend task with Flask 
 
-Think of this as an open source project. How would this have to look like, in order for you to be impressed with it - if you were to find it on Github? Now go do that.
+## Requirements
+> Assumed to be running on Windows 10 and that pip is already installed
+>
+> Python 3 is required
 
-Try to limit the amount of time you spend on this to 90-120 minutes. However, feel free to spend more - just make sure you're happy with your submission!
+## How to run the code
+> Extract everything from the zip file into a directory of your choice
+>
+> Open a command prompt and go into the directory
+>
+> Create a virtual environment
+> ```bash
+> python -m venv env
+> ```
+>
+> Activate the virtual environment
+> ```bash
+> env\Scripts\activate
+> ```
+>
+> Install the requirements
+> ```bash
+> pip install -r requirements.txt
+> ```
+> 
+> To run the controller to render the tables
+> ```bash
+> python controller.py
+> ```
+> Open a browser and go to the local host shown on the last line
+> At the end of localhost:5000, type either /stores to show the list of stores in alphabetical order or /stores_and_long_and_lat to also show the longitudes and latitudes next to each store
+>
+> To find stores within a specified radius of a postcode, type 'python' in the command prompt to go into interactive mode
+> Then type
+> ```bash
+> >>>from models.stores_in_radius_model import StoresWithinRadius
+> >>>stores_within_radius = StoresWithinRadius('postcode', radius)
+> >>>stores_within_radius.get_stores_within_radius_ordered()
+> ```
+> (Where 'postcode' is a postcode string and radius is a real number in km)
+>
+> To run the unit test
+> ```bash
+> cd test
+> python unit_test.py
+> ```
 
-_Hint_: we're looking for a high-quality submission with great application architecture, not a "just get it done"-like approach.
+## What would you have changed if you had more time?
 
-## What to do
+Currently, the get_long_and_lat_list() method in the LongitudeAndLatitude class returns a value of 9999 for both longitude and latitude if the API returns that the postcode is invalid. This is probably not the best way to handle an error like this. With more time I would have built a functionality to separate the 'good' postcodes from the invalid ones, and put them into separate lists and only check from the list of valid ones when using the StoresWithinRadius class.
+There is also some repeated code in the unit_test.py module, namely the two for loops for testing distance from postcode to store. This is in violation of the DRY principle and I would have created a function to address this.
 
-### If you're applying for a backend role
+## What bits did you find the toughest? What bit are you most proud of? In both cases, why?
 
-* Create a new Python-based application (any framework is fine, we prefer Flask)
-* Render the list of stores from the `stores.json` file in alphabetical order through a backend template
-* Use postcodes.io to get the latitude and longitude for each postcode and render them next to each store location in the template
-* Build the functionality that allows you to return a list of stores in any given radius of any given postcode in the UK ordered from north to south and unit test it - no need to render anything
+As a relatively junior developer with limited experience in software architecture, I found it tough to determine what constitutes a 'good' architecture. Learning Flask from scratch by following online tutorials (I limited myself to short ones due to time constraints) only taught me the basics of Flask, but did not really teach me good code structuring. I had to look through a lot of github examples to make a final judgement as to how to structure my code, as getting it wrong from the start can lead to a lot of wasted time down the line.
 
-### If you're applying for a full stack role
+I am proud of the fact that, having no previous knowledge of Flask and only limited experience in web development, I managed to make the application well structured, and the fact that it works! This test was a real challenge for me and I had a lot of fun along the way, by constantly learning and doing.
 
-* Create a new backend application (any language is fine), using your favourite front-end framework (we'd prefer React, Vue or Ember though) on the user-facing side
-* Build an API that returns stores from the `stores.json` file, based on a given search string in a performant way and unit test it, i.e. return "Newhaven" when searching for "hav" - make sure the search allows to use both city name and postcode
-* Order the results by matching postcode first and then matching city names, i.e. "br" would have "Orpington" as the 1st result, "Bracknell" as the 2nd
-* Build the frontend that renders the text field for the query and the list of stores that match it
-* Add suggestions to the query field as you type, with a debounce effect of 100ms and a minimum of 2 characters
-* Limit the results to 3 and lazy load the rest
+## How can we improve this test?
 
-### Finally
-
-* Include and render your favourite gif at the top right-hand corner of your application
-* Zip your code up and upload it into Greenhouse
-* Tell us what test you completed (backend or full-stack)
-* Tell us what you'd have changed if you'd have had more time?
-* What bits did you find the toughest? What bit are you most proud of? In both cases, why?
-* What's one thing we could do to improve this test?
+Overall I am happy with the layout of the test. If I really had to make a suggestion, perhaps a few pointers on how to determine the distance between two points based on longitudes and latitudes could have been given, as it can be hard to tell if what's found on the internet are correct, and really digging into the maths and writing it from scratch would not be straightforward.

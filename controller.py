@@ -73,6 +73,7 @@ class Controller:
 
 app = Flask(__name__)
 
+# Create objects
 stores = Stores()
 long_and_lat = LongitudeAndLatitude()
 # No need to render stores within radius, so set to None
