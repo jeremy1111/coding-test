@@ -39,7 +39,7 @@ class Controller:
         """Get longitude and latitude from long_and_lat_model
            Returns list of tuples (longitude, latitude)
         """
-        list_of_long_and_lat = self.long_and_lat.get_long_and_lat(
+        list_of_long_and_lat = self.long_and_lat.get_long_and_lat_list(
                             stores.get_postcodes()
         )
         return list_of_long_and_lat

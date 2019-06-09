@@ -44,9 +44,8 @@ class Test(unittest.TestCase):
                 long_and_lat_outside_radius.append(item)
         
         # Longitude and latitude of test postcode
-        long_and_lat_of_postcode = long_and_lat.get_long_and_lat([postcode])
-        longitude_of_postcode = long_and_lat_of_postcode[0][0]
-        latitude_of_postcode = long_and_lat_of_postcode[0][1]
+        (longitude_of_postcode,
+         latitude_of_postcode) = long_and_lat.get_long_and_lat(postcode)
         
         # Test if stores within radius are really within radius
         for item in long_and_lat_within_radius:

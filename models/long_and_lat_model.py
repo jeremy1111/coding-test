@@ -14,10 +14,22 @@ class LongitudeAndLatitude:
     def __init__(self):
         pass
 
-              
-    def get_long_and_lat(self, list_of_postcodes):
-        """Find the longitudes and latitudes of the list of stores found 
-           in the json file
+    
+    def get_long_and_lat(self, postcode):
+        """Find longitude and latitude of a single postcode
+           Returns two floats
+        """
+        response = requests.get("https://api.postcodes.io/postcodes/" 
+                                + postcode)
+        postcode_details = json.loads(response.text)
+        longitude_of_postcode = postcode_details['result']['longitude']
+        latitude_of_postcode = postcode_details['result']['latitude']
+        return longitude_of_postcode, latitude_of_postcode
+
+
+    def get_long_and_lat_list(self, list_of_postcodes):
+        """Find the longitudes and latitudes of a list of postcodes
+           Returns a list of tuples
         """
         # Make the list of postcodes into a format readable by the API
         json_list_of_postcodes = {"postcodes" : list_of_postcodes}
@@ -31,7 +43,7 @@ class LongitudeAndLatitude:
 
         # Compute the list of longitudes and latitudes. Each pair is a tuple
         # (longitude, latitude)
-        longitude_and_latitude = []
+        longitudes_and_latitudes = []
         for index in range(len(list_of_postcodes)):
             
             # Extract longitude and latitude of each postcode from response data
@@ -43,9 +55,9 @@ class LongitudeAndLatitude:
                 
                 # Compute longitude and latitude of the postcodes as a list of 
                 # tuples
-                longitude_and_latitude.append((longitude, latitude))
+                longitudes_and_latitudes.append((longitude, latitude))
             
             # And if no data is found from API, set both to 9999
             except:
-                longitude_and_latitude.append((9999,9999))
-        return longitude_and_latitude
+                longitudes_and_latitudes.append((9999,9999))
+        return longitudes_and_latitudes
