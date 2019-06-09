@@ -18,12 +18,12 @@ class Stores:
        
     def get_sorted_list_of_stores(self):
         """Convert the dictionaries into tuples of (name, postcode) and
-           subsequently create a list of tuples
+           subsequently create a list of tuples (name, postcode)
         """
         list_of_stores_in_tuples = []
-        for index in range(len(self.list_of_stores)):
-            name = self.list_of_stores[index]['name']
-            postcode = self.list_of_stores[index]['postcode']
+        for item in self.list_of_stores:
+            name = item['name']
+            postcode = item['postcode']
             list_of_stores_in_tuples.append((name, postcode))
             
         # Sort the list of tuples with names in alphabetical order
@@ -36,6 +36,6 @@ class Stores:
            Returns list of strings ['postcode1', 'postcode2', ...]
         """
         list_of_postcodes = []
-        for index in range(len(self.get_sorted_list_of_stores())):
-            list_of_postcodes.append(self.get_sorted_list_of_stores()[index][1])
+        for item in self.get_sorted_list_of_stores():
+            list_of_postcodes.append(item[1])
         return list_of_postcodes

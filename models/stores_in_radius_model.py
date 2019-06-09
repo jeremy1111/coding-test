@@ -62,11 +62,11 @@ class StoresWithinRadius:
         self.list_of_stores_within_radius = []
         list_of_long_and_lat = []
         
-        for index in range(len(longitude_and_latitude)):
+        for item in longitude_and_latitude:
             
             # Compute longitude and latitude of each store
-            longitude_of_store = longitude_and_latitude[index][0]
-            latitude_of_store = longitude_and_latitude[index][1]
+            longitude_of_store = item[0]
+            latitude_of_store = item[1]
             
             # Compute distance from each store to given postcode
             (longitude_of_postcode, 
@@ -81,11 +81,12 @@ class StoresWithinRadius:
             
             if distance_store_to_postcode <= self.radius:
                 
-                # Append store into list if within given radius 
+                # Append store into list if within given radius
+                index = longitude_and_latitude.index(item)
                 self.list_of_stores_within_radius.append(list_of_stores[index])
                 
                 # Compute their corresponding longitude and latitude
-                list_of_long_and_lat.append(longitude_and_latitude[index])       
+                list_of_long_and_lat.append(item)       
         return list_of_long_and_lat
 
         

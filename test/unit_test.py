@@ -39,9 +39,9 @@ class Test(unittest.TestCase):
         # test radius
         long_and_lat_all = controller.get_long_and_lat_data()
         long_and_lat_outside_radius = []
-        for i in range(len(long_and_lat_all)):
-            if long_and_lat_all[i] not in long_and_lat_within_radius:
-                long_and_lat_outside_radius.append(long_and_lat_all[i])
+        for item in long_and_lat_all:
+            if item not in long_and_lat_within_radius:
+                long_and_lat_outside_radius.append(item)
         
         # Longitude and latitude of test postcode
         long_and_lat_of_postcode = long_and_lat.get_long_and_lat([postcode])
@@ -49,9 +49,9 @@ class Test(unittest.TestCase):
         latitude_of_postcode = long_and_lat_of_postcode[0][1]
         
         # Test if stores within radius are really within radius
-        for i in range(len(long_and_lat_within_radius)):
-            longitude_of_store = long_and_lat_within_radius[i][0]
-            latitude_of_store = long_and_lat_within_radius[i][1]
+        for item in long_and_lat_within_radius:
+            longitude_of_store = item[0]
+            latitude_of_store = item[1]
             distance_postcode_to_store = distance(latitude_of_postcode,
                                                   longitude_of_postcode,
                                                   latitude_of_store,
@@ -59,9 +59,9 @@ class Test(unittest.TestCase):
             self.assertTrue(distance_postcode_to_store <= radius)
         
         # Test if stores outside radius are really outside radius
-        for i in range(len(long_and_lat_outside_radius)):
-            longitude_of_store = long_and_lat_outside_radius[i][0]
-            latitude_of_store = long_and_lat_outside_radius[i][1]
+        for item in long_and_lat_outside_radius:
+            longitude_of_store = item[0]
+            latitude_of_store = item[1]
             distance_postcode_to_store = distance(latitude_of_postcode,
                                                   longitude_of_postcode,
                                                   latitude_of_store,
