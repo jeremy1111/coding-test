@@ -33,9 +33,11 @@
 > python controller.py
 > ```
 > Open a browser and go to the local host shown on the last line
+>
 > At the end of localhost:5000, type either /stores to show the list of stores in alphabetical order or /stores_and_long_and_lat to also show the longitudes and latitudes next to each store
 >
 > To find stores within a specified radius of a postcode, type 'python' in the command prompt to go into interactive mode
+>
 > Then type
 > ```bash
 > >>>from models.stores_in_radius_model import StoresWithinRadius
