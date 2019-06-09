@@ -2,7 +2,8 @@ import json
 import os
 
 """This class inputs the json file and converts the data into a list of 
-   tuples. It is used by the controller"""
+   tuples. It is used by the controller
+"""
 
 
 

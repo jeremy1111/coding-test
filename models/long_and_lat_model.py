@@ -4,7 +4,8 @@ import requests
 """This class takes the list of postcodes and makes requests to the API, which
    then returns corresponding data. The longitudes and latitudes are extracted
    and put into a list of tuples
-   It is used by the controller"""
+   It is used by the controller
+"""
 
 
 

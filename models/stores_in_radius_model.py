@@ -9,20 +9,19 @@ from models.long_and_lat_model import LongitudeAndLatitude
 from find_distance import distance
 
 
-"""This class gets the longitude and latitude from a postcode and returns 
-   a list of stores within a specified radius
-   It is used by the controller
-   Dependencies: Stores class, 
-                 LongitudeAndLatitude class, 
-                 distance method
+"""This class takes the longitude and latitude from a postcode and a radius 
+   to find stores within said radius
+   It is used by the controller 
+   Inherits from: Stores class, 
+                  LongitudeAndLatitude class
 """
 
 
 
-class StoresWithinRadius:
+class StoresWithinRadius(Stores, LongitudeAndLatitude):
 
     def __init__(self, postcode, radius):
-
+        super().__init__() 
         self.postcode = postcode
         self.radius = radius
 
@@ -30,16 +29,12 @@ class StoresWithinRadius:
     def _get_list_of_long_and_lat(self):
         """Compute list of longitude and latitude of stores within radius
         """
-        # Create a stores object from Stores class
-        stores = Stores()
         # Compute list of names and postcodes of all stores
-        list_of_stores = stores.get_sorted_list_of_stores()
+        list_of_stores = self.get_sorted_list_of_stores()
         
-        # Create a long_and_lat object from LongitudeAndLatitude class
-        long_and_lat = LongitudeAndLatitude()
         # Compute list of longitudes and latitudes of all stores
         longitudes_and_latitudes = \
-                long_and_lat.get_long_and_lat_list(stores.get_postcodes())
+                self.get_long_and_lat_list(self.get_postcodes())
         
         self.list_of_stores_within_radius = []
         list_of_long_and_lat = []
@@ -52,7 +47,7 @@ class StoresWithinRadius:
             
             # Compute distance from each store to given postcode
             (longitude_of_postcode, 
-             latitude_of_postcode) = long_and_lat.get_long_and_lat(self.postcode)
+             latitude_of_postcode) = self.get_long_and_lat(self.postcode)
                                             
             distance_store_to_postcode = distance(latitude_of_postcode, 
                                                   longitude_of_postcode, 
