@@ -12,7 +12,7 @@ class Stores:
         """Open the json file and convert it into a list of dictionaries
         """
         root = os.path.join(os.path.dirname(__file__), '..')
-        with open(root + "\data\stores.json") as store_list:    
+        with open(root + "\static\stores.json") as store_list:    
             self.list_of_stores = json.load(store_list)
 
        

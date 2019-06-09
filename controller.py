@@ -80,18 +80,20 @@ controller = Controller(stores, long_and_lat, None)
 town_and_postcodes = controller.get_stores_data()
 longitude_and_latitude = controller.get_long_and_lat_data()
 
-@app.route('/stores')
+@app.route('/stores', methods=['GET', 'POST'])
 def render_list_of_stores():
     
-    return render_template('render_stores.html', 
-                           name_and_postcode = town_and_postcodes)
+    return render_template('render_stores.html',
+                           name_and_postcode = town_and_postcodes,
+                           image = "/static/tenor.gif")
 
-@app.route('/stores_and_long_and_lat')
+@app.route('/stores_and_long_and_lat', methods=['GET', 'POST'])
 def render_list_of_stores_with_coordinates():
     
     return render_template('render_stores.html', 
                            name_and_postcode = town_and_postcodes, 
-                           longitude_and_latitude = longitude_and_latitude)
+                           longitude_and_latitude = longitude_and_latitude,
+                           image = "/static/tenor.gif")
 
 if __name__ == '__main__':
     app.run(debug = True)   
