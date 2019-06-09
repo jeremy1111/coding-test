@@ -1,7 +1,6 @@
 <html>
    <body>
-      <table id="tblOne" border=1 style="width:25%; float:left">
-	    
+      <table id="tblOne" border=1 style="width:25%; float:left">	    
          {% for name, postcode in name_and_postcode %}
             <tr>
                <td> {{ name }} </td>
@@ -9,8 +8,7 @@
             </tr>
          {% endfor %}
       </table>
-	  <table id="tblTwo" border=1 style="width:25%; float:left">
-	    
+	  <table id="tblTwo" border=1 style="width:25%; float:left">	    
          {% for longitude, latitude in longitude_and_latitude %}
             <tr>
                <td> {{ longitude }} </td>
@@ -18,11 +16,6 @@
             </tr>
          {% endfor %}
       </table>      
-	  <img src="{{ image }}">
-	  
-       
+      <img src="{{ image }}">    
    </body>
-
-   
-
 </html>
