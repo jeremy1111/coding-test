@@ -1,8 +1,3 @@
-# Tails coding test
-
-## Task completed
-> Backend task with Flask 
-
 ## Requirements
 > Assumed to be running on Windows 10 and that pip is already installed
 >
@@ -62,7 +57,3 @@ There is also some repeated code in the unit_test.py module, namely the two for 
 As a relatively junior developer with limited experience in software architecture, I found it tough to determine what constitutes a 'good' architecture. Learning Flask from scratch by following online tutorials (I limited myself to short ones due to time constraints) only taught me the basics of Flask, but did not really teach me good code structuring. I had to look through a lot of github examples to make a final judgement as to how to structure my code, as getting it wrong from the start can lead to a lot of wasted time down the line.
 
 I am proud of the fact that, having no previous knowledge of Flask and only limited experience in web development, I managed to make the application well structured, and the fact that it works! This test was a real challenge for me and I had a lot of fun along the way, by constantly learning and doing.
-
-## How can we improve this test?
-
-Overall I am happy with the layout of the test. If I really had to make a suggestion, perhaps a few pointers on how to determine the distance between two points based on longitudes and latitudes could have been given, as it can be hard to tell if what's found on the internet are correct, and really digging into the maths and writing it from scratch would not be straightforward.
