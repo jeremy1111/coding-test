@@ -1,4 +1,4 @@
-# Tails coding test - submission by Jeremy Hui
+# Tails coding test
 
 ## Task completed
 > Backend task with Flask 
