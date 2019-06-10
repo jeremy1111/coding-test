@@ -46,14 +46,3 @@
 > cd test
 > python unit_test.py
 > ```
-
-## What would you have changed if you had more time?
-
-Currently, the get_long_and_lat_list() method in the LongitudeAndLatitude class returns a value of 9999 for both longitude and latitude if the API returns that the postcode is invalid. This is probably not the best way to handle an error like this. With more time I would have built a functionality to separate the 'good' postcodes from the invalid ones, and put them into separate lists and only check from the list of valid ones when using the StoresWithinRadius class.
-There is also some repeated code in the unit_test.py module, namely the two for loops for testing distance from postcode to store. This is in violation of the DRY principle and I would have created a function to address this.
-
-## What bits did you find the toughest? What bit are you most proud of? In both cases, why?
-
-As a relatively junior developer with limited experience in software architecture, I found it tough to determine what constitutes a 'good' architecture. Learning Flask from scratch by following online tutorials (I limited myself to short ones due to time constraints) only taught me the basics of Flask, but did not really teach me good code structuring. I had to look through a lot of github examples to make a final judgement as to how to structure my code, as getting it wrong from the start can lead to a lot of wasted time down the line.
-
-I am proud of the fact that, having no previous knowledge of Flask and only limited experience in web development, I managed to make the application well structured, and the fact that it works! This test was a real challenge for me and I had a lot of fun along the way, by constantly learning and doing.
