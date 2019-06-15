@@ -4,7 +4,6 @@
 > Python 3 is required
 
 ## How to run the code
-> Extract everything from the zip file into a directory of your choice
 >
 > Open a command prompt and go into the directory
 >
