@@ -1,4 +1,5 @@
 # Task completed
+## Backend coding test
 * Create a new Python-based application with Flask
 >
 * Render the list of stores from the stores.json file in alphabetical order through a backend template
@@ -54,3 +55,7 @@
 > cd test
 > python unit_test.py
 > ```
+## What would I have changed if I had more time?
+
+Currently, the get_long_and_lat_list() method in the LongitudeAndLatitude class returns a value of 9999 for both longitude and latitude if the API returns that the postcode is invalid. This is probably not the best way to handle an error like this. With more time I would have built a functionality to separate the 'good' postcodes from the invalid ones, and put them into separate lists and only check from the list of valid ones when using the StoresWithinRadius class.
+There is also some repeated code in the unit_test.py module, namely the two for loops for testing distance from postcode to store. This is in violation of the DRY principle and I would have created a function to address this.
