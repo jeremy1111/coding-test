@@ -1,3 +1,9 @@
+## Task
+> Create a new Python-based application (any framework is fine)
+> Render the list of stores from the stores.json file in alphabetical order through a backend template
+> Use postcodes.io to get the latitude and longitude for each postcode and render them next to each store location in the template
+> Build the functionality that allows you to return a list of stores in any given radius of any given postcode in the UK ordered from north to south and unit test it - no need to render anything
+
 ## Requirements
 > Assumed to be running on Windows 10 and that pip is already installed
 >
