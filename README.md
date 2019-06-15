@@ -5,7 +5,7 @@
 
 ## How to run the code
 >
-> Open a command prompt and go into the directory
+> Open a command prompt and go into the directory where this package has been placed
 >
 > Create a virtual environment
 > ```bash
