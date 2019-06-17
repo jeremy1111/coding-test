@@ -48,7 +48,6 @@ class Controller:
     def get_long_and_lat_within_radius(self):
         """From stores_in_radius_model, get list of longitudes and  
            latitudes within specified radius ordered from north to south
-           Takes a string (postcode) and a float (radius) as arguments
            Returns list of tuples
         """
         long_and_lat_within_radius = \
@@ -59,7 +58,6 @@ class Controller:
     def get_stores_within_radius(self):
         """From stores_in_radius_model, get list of stores within 
            specified radius ordered from north to south
-           Takes a string (postcode) and a float (radius) as arguments
            Returns list of tuples
         """                      
         stores_within_radius = \
