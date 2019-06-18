@@ -1,5 +1,5 @@
-# Task completed - Backend coding challenge
-## Specification of task
+# Backend coding challenge
+## Task Specification
 * Create a new Python-based application with Flask
 >
 * Render the list of stores from the stores.json file in alphabetical order through a backend template
