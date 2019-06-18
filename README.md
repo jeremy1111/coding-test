@@ -1,5 +1,5 @@
 # Coding challenge (Python/Flask)
-## Task specification
+## Task specification (What I've been asked to do)
 * Create a new Python-based application with Flask
 >
 * Render the list of stores from the stores.json file in alphabetical order through a backend template
@@ -8,12 +8,12 @@
 > 
 * Build the functionality that allows you to return a list of stores in any given radius of any given postcode in the UK ordered from north to south and unit test it - no need to render anything
 
-## System requirements
+## System requirements (What you need to run the code)
 > Assumed to be running on Windows 10 and that pip is already installed
 >
 > Python 3 is required
 
-## How to run the code
+## How to run this code
 >
 > Open a command prompt and go into the directory where this package has been placed
 >
