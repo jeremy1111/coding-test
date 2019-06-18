@@ -38,7 +38,7 @@
 > ```
 > Open a browser and go to the local host shown on the last line
 >
-> At the end of localhost:5000, type either '/stores' to show the list of stores in alphabetical order or '/stores_and_long_and_lat' to also show the longitudes and latitudes next to each store
+> At the end of localhost:5000, type either *'/stores'* to show the list of stores in alphabetical order or *'/stores_and_long_and_lat'* to also show the longitudes and latitudes next to each store
 >
 > To find stores within a specified radius of a postcode, type 'python' in the command prompt to go into interactive mode
 >
@@ -57,5 +57,5 @@
 > ```
 ## What I would have changed if I had more time
 
-Currently, the get_long_and_lat_list() method in the LongitudeAndLatitude class returns a value of 9999 for both longitude and latitude if the API returns that the postcode is invalid. This is probably not the best way to handle an error like this. With more time I would have built a functionality to separate the 'good' postcodes from the invalid ones, and put them into separate lists and only check from the list of valid ones when using the StoresWithinRadius class.
+Currently, the *get_long_and_lat_list()* method in the **LongitudeAndLatitude** class returns a value of 9999 for both longitude and latitude if the API returns that the postcode is invalid. This is probably not the best way to handle an error like this. With more time I would have built a functionality to separate the 'good' postcodes from the invalid ones, and put them into separate lists and only check from the list of valid ones when using the **StoresWithinRadius** class.
 There is also some repeated code in the unit_test.py module, namely the two for loops for testing distance from postcode to store. This is in violation of the DRY principle and I would have created a function to address this.
