@@ -72,12 +72,10 @@ class StoresWithinRadius(Stores, LongitudeAndLatitude):
         list_of_long_and_lat = self._get_list_of_long_and_lat()
         self.len_of_long_and_lat_list = range(len(list_of_long_and_lat))
         
-        sorted_indexes_list_by_latitude = sorted(
-                                      self.len_of_long_and_lat_list, 
-                                      key=lambda 
-                                      index: list_of_long_and_lat[index][1], 
-                                      reverse=True
-        )
+        sorted_indexes_list_by_latitude = sorted(self.len_of_long_and_lat_list, 
+                                                 key=lambda 
+                                                 index: list_of_long_and_lat[index][1], 
+                                                 reverse=True)
         return sorted_indexes_list_by_latitude
  
  
