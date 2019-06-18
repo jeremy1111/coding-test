@@ -1,4 +1,4 @@
-# Backend coding challenge
+# Coding challenge
 ## Task Specification
 * Create a new Python-based application with Flask
 >
